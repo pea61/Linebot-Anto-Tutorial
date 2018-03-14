@@ -10,17 +10,17 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage
 )
 
-line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
-handler = WebhookHandler('YOUR_CHANNEL_SECRET')
+line_bot_api = LineBotApi('IrN10smd9lGZGp0JtOOoBJpAvSvDPFVNnDbTdxVbnU2Xv9YNaABrfKI2LxXxRH59XxerqJx3otWj0OqohFtMLiwSJy6fEEYarDN9KVKol7CqHo1GzqPST1DJI4hvg04yIDQiNwa2M1UD8K4SRn4XawdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('fb78ff3825406ec91a010e7a55e0af6c')
 
 app = Flask(__name__)
 
 # username of anto.io account
-user = 'YOUR_USERNAME'
+user = 'ZEEZA'
 # key of permission, generated on control panel anto.io
-key = 'YOUR_KEY'
+key = '9zKwkvnRCGdXDmxrz1od5oCFb74nqLBMKLPyJG2B'
 # your default thing.
-thing = 'YOUR_THING'
+thing = 'myChannel1'
 
 anto = antolib.Anto(user, key, thing)
 
@@ -46,10 +46,14 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = event.message.text
-    # line_bot_api.reply_message(
-    #     event.reply_token,
-    #     TextSendMessage(text="Turn Off channel1"))
-
-if __name__ == "__main__":
-    anto.mqtt.connect()
-    app.run(debug=True)
+    if(message == 'channel1 on'):
+        anto.pub('myChannel1', 1)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="Turn On channel1"))
+    elif(message == 'channel1 off'):
+        anto.pub('myChannel1', 0)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="Turn Off channel1"))
+   
