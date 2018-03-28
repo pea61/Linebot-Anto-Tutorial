@@ -18,9 +18,9 @@ app = Flask(__name__)
 # username of anto.io account
 user = 'ZEEZA'
 # key of permission, generated on control panel anto.io
-key = '9zKwkvnRCGdXDmxrz1od5oCFb74nqLBMKLPyJG2B'
+key = 'TLmlVU2Dk1oQIyt0ffFFwJcub5Yhr5ZCX0QgSQ2p'
 # your default thing.
-thing = 'myChannel1'
+thing = 'myyChannel1'
 
 anto = antolib.Anto(user, key, thing)
 
@@ -47,12 +47,12 @@ def callback():
 def handle_message(event):
     message = event.message.text
     if(message == 'channel1 on'):
-        anto.pub('myChannel1', 1)
+        anto.pub('myyChannel1', 1)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="Turn On channel1"))
     elif(message == 'channel1 off'):
-        anto.pub('myChannel1', 0)
+        anto.pub('myyChannel1', 0)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="Turn Off channel1"))
