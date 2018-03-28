@@ -10,17 +10,18 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage
 )
 
-line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
-handler = WebhookHandler('YOUR_CHANNEL_SECRET')
+line_bot_api = LineBotApi('IrN10smd9lGZGp0JtOOoBJpAvSvDPFVNnDbTdxVbnU2Xv9YNaABrfKI2LxXxRH59XxerqJx3otWj0OqohFtMLiwSJy6fEEYarDN9KVKol7CqHo1GzqPST1DJI4hvg04yIDQiNwa2M1UD8K4SRn4XawdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('fb78ff3825406ec91a010e7a55e0af6c
+')
 
 app = Flask(__name__)
 
 # username of anto.io account
-user = 'YOUR_USERNAME'
+user = 'ZEEZA'
 # key of permission, generated on control panel anto.io
-key = 'YOUR_KEY'
+key = 'TLmlVU2Dk1oQIyt0ffFFwJcub5Yhr5ZCX0QgSQ2p'
 # your default thing.
-thing = 'YOUR_THING'
+thing = 'myyChannel1'
 
 anto = antolib.Anto(user, key, thing)
 
